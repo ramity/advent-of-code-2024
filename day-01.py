@@ -20,10 +20,45 @@ def pairwise_distance(pairwise_list):
 
     return sum(abs(pairwise_list[i][0] - pairwise_list[i][1]) for i in range(len(pairwise_list)))
 
+# After authing, I discovered we have to read in some input, so I asked chatGPT to generate a script to handle it.
+# Using regular expressions for this is rather overkill, but the idea of this exercise is to show off using AI input.
+# https://chatgpt.com/share/674cf502-3cc4-8011-8ac6-6bd7cfe4d424
+
+import re
+
+def extract_numbers(file_path):
+    """
+    Reads a file and extracts pairs of five-digit numbers separated by three spaces.
+
+    Args:
+        file_path (str): The path to the text file.
+
+    Returns:
+        tuple: Two lists - first list contains all the first numbers, 
+               second list contains all the second numbers.
+    """
+    pattern = r'(\d{5})   (\d{5})'  # Regex for two 5-digit numbers separated by 3 spaces
+    first_numbers = []
+    second_numbers = []
+
+    try:
+        with open(file_path, 'r') as file:
+            for line in file:
+                matches = re.findall(pattern, line)
+                for match in matches:
+                    # Slight manual modification to cast as ints
+                    first_numbers.append(int(match[0]))
+                    second_numbers.append(int(match[1]))
+    except FileNotFoundError:
+        print(f"Error: File at {file_path} not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+    return first_numbers, second_numbers
+
 # Define input
 
-left_list = [3, 4, 2, 1, 3, 3]
-right_list = [4, 3, 5, 3, 9, 3]
+left_list, right_list = extract_numbers("./day-01-input.txt")
 
 # Sort input
 
@@ -35,6 +70,6 @@ right_list.sort()
 pairwise_list = pairwise_combine(left_list, right_list)
 pairwise_distance = pairwise_distance(pairwise_list)
 
-# Pretty print result to console
+# Pretty print part one result to console
 
 print(f'Total distance: {pairwise_distance}')
