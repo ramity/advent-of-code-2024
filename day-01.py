@@ -1,3 +1,5 @@
+import re
+
 # https://chatgpt.com/share/674cf05e-6b48-8011-93b1-441c0ed10036
 
 def pairwise_combine(list1, list2):
@@ -23,8 +25,6 @@ def pairwise_distance(pairwise_list):
 # After authing, I discovered we have to read in some input, so I asked chatGPT to generate a script to handle it.
 # Using regular expressions for this is rather overkill, but the idea of this exercise is to show off using AI input.
 # https://chatgpt.com/share/674cf502-3cc4-8011-8ac6-6bd7cfe4d424
-
-import re
 
 def extract_numbers(file_path):
     """
