@@ -27,12 +27,12 @@ right_list = [4, 3, 5, 3, 9, 3]
 
 # Sort input
 
-sorted_left_list = sort(left_list)
-sorted_right_list = sort(right_list)
+left_list.sort()
+right_list.sort()
 
 # Apply operations to input and calculate desired output
 
-pairwise_list = pairwise_combine(sorted_left_list, sorted_right_list)
+pairwise_list = pairwise_combine(left_list, right_list)
 pairwise_distance = pairwise_distance(pairwise_list)
 
 # Pretty print result to console
