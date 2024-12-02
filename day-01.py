@@ -73,3 +73,31 @@ pairwise_distance = pairwise_distance(pairwise_list)
 # Pretty print part one result to console
 
 print(f'Total distance: {pairwise_distance}')
+
+# Now we need to count the number of occurrences of a left_list elements in right_list.
+# https://chatgpt.com/share/674cf785-e9f0-8011-8f1b-b74fbdb801ba
+
+def count_occurrences(list1, list2):
+    """
+    Compare two lists and return a list of counts where each element is the
+    number of instances of the number from list1 occurring in list2.
+
+    :param list1: List of elements to count in list2
+    :param list2: List in which to count occurrences
+    :return: List of counts
+    """
+    counts = [list2.count(element) for element in list1]
+    return counts
+
+# I manually create a wrapping function to summate the counts array result from the count_occurrences method
+
+def similarity_score(list1, list2):
+
+    occurrences = count_occurrences(list1, list2)
+    return sum(occurrences[i] * list1[i] for i in range(len(list1)))
+
+similarity_score = similarity_score(left_list, right_list)
+
+# Pretty print part two answer to console
+
+print(f'Similarity score: {similarity_score}')
