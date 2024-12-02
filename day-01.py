@@ -96,6 +96,8 @@ def similarity_score(list1, list2):
     occurrences = count_occurrences(list1, list2)
     return sum(occurrences[i] * list1[i] for i in range(len(list1)))
 
+# Calculate similarity score between left and right lists
+
 similarity_score = similarity_score(left_list, right_list)
 
 # Pretty print part two answer to console
