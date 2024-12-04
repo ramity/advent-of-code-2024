@@ -42,19 +42,19 @@ def calculate_enabled_mul_total(filename):
     # Step 1: Read the contents of the file into a variable
     with open(filename, 'r') as file:
         content = file.read()
-    
+
     # Step 2: Initialize a running total
     running_total = 0
-    
+
     # Step 3: Extract all text between "do()" and "don't()"
     between_texts = re.findall(r"do\(\)(.*?)don't\(\)", content, re.DOTALL)
-    
+
     # Step 4: Process each extracted text to find and calculate mul(X,Y)
     for text in between_texts:
         matches = re.findall(r"mul\((\d{1,3}),(\d{1,3})\)", text)
         for x, y in matches:
             running_total += int(x) * int(y)
-    
+
     # Step 5: Extract text before the first occurrence of "do()" or "don't()"
     before_text_match = re.search(r"^(.*?)(do\(\)|don't\()", content, re.DOTALL)
     if before_text_match:
@@ -63,7 +63,7 @@ def calculate_enabled_mul_total(filename):
         matches = re.findall(r"mul\((\d{1,3}),(\d{1,3})\)", before_text)
         for x, y in matches:
             running_total += int(x) * int(y)
-    
+
     # Step 7: Return the running total
     return running_total
 
