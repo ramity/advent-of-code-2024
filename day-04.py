@@ -52,7 +52,7 @@ def count_word_in_wordsearch(filename, target_word):
 # Calculate and pretty print the answer to part one
 
 xmas_count = count_word_in_wordsearch("./day-04-input.txt", "XMAS")
-print(f'XMAS occurances: {xmas_count}')
+print(f'XMAS count: {xmas_count}')
 
 # https://chatgpt.com/share/6751219c-6978-8011-ad64-6c7bf5747471
 
