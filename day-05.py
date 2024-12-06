@@ -94,7 +94,7 @@ xy_rules, orderings = process_file("./day-05-input.txt")
 middle_sum = sum(middle_number(ordering) if validate_order(ordering, xy_rules) else 0 for ordering in orderings)
 print(f'Sum of valid middle pages: {middle_sum}')
 
-# https://chatgpt.com/share/67524b19-4470-8011-993a-5df1ee3158d3
+# https://chatgpt.com/share/67529f4f-5900-8011-878e-6d4099efc9eb
 
 def reorder_numbers(number_list, ordering_rules):
     # Split the input string into a list of integers
